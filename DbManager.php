@@ -14,9 +14,9 @@ class DbManager extends DbConnect
     public function getProducts()
     {
         $sql = "SELECT * FROM products";
-        $stmt = $this->connect()->query($sql);
+        $stmt = mysqli_query($this->connect(), $sql);
         // $products = $stmt->fetchAll();
-        $products = $stmt->fetch_assoc();
+        $products = mysqli_fetch_all($stmt, MYSQLI_ASSOC);
         echo json_encode($products);
     }
 

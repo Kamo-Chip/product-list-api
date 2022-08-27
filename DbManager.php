@@ -60,6 +60,7 @@ class DbManager extends DbConnect
             $response = ["status" => 1, "message" => "Record deleted successfully"];
         } else {
             $response = ["status" => 0, "message" => "Failed to delete record"];
+            echo $this->connect()->error;
         }
         echo json_encode($response);
     }

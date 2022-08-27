@@ -7,7 +7,7 @@ class DbConnect
 {
 	private $server = 'us-cdbr-east-06.cleardb.net';
 	private $dbname = 'heroku_d11828329da3bdf';
-	private $user = 'f2d64834';
+	private $user = 'b7b023a1da2d4e';
 	private $pass = 'f2d64834';
 
 	protected function connect()

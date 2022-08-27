@@ -5,15 +5,10 @@
  */
 class DbConnect
 {
-	private $server = 'localhost';
-	private $dbname = 'id19461161_productlist';
-	private $user = 'id19461161_productlistuser';
-	private $pass = '5hSVQ&iu[=AD<cOm';
-
-	// private $server = 'sql302.epizy.com';
-	// private $dbname = 'epiz_32444252_productlist';
-	// private $user = 'epiz_32444252';
-	// private $pass = 'Uaeb3SGyF8UmobP';
+	private $server = 'us-cdbr-east-06.cleardb.net';
+	private $dbname = 'heroku_d11828329da3bdf';
+	private $user = 'f2d64834';
+	private $pass = 'f2d64834';
 
 	protected function connect()
 	{

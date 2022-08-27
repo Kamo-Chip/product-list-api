@@ -13,8 +13,10 @@ class DbConnect
 	protected function connect()
 	{
 		try {
-			$conn = new PDO('mysql:host=' . $this->server . ';dbname=' . $this->dbname, $this->user, $this->pass);
-			$conn->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
+			// $conn = new PDO('mysql:host=' . $this->server . ';dbname=' . $this->dbname, $this->user, $this->pass);
+			// $conn->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
+			// return $conn;
+			$conn = mysqli_connect($this->server, $this->user, $this->pass, $this->dbname);
 			return $conn;
 		} catch (\Exception $e) {
 			echo "Database Error: " . $e->getMessage();

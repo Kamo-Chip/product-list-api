@@ -28,14 +28,16 @@ class DbManager extends DbConnect
         $class_name = strtolower($product_values->productType);
         $product = new $class_name($product_values->sku, $product_values->name, $product_values->price, $product_values->attributeValue, $product_values->productType);
         $sql = "INSERT INTO products(sku, name, attribute, attribute_value, product_type, price) 
-        VALUES (:sku, :name, :attribute, :attribute_value, :product_type, :price)";
+        VALUES (?, ?, ?, ?, ?, ?)";
         $stmt = $this->connect()->prepare($sql);
-        $stmt->bind_param(":sku", $product->getSku());
-        $stmt->bind_param(":name", $product->getName());
-        $stmt->bind_param(":attribute", $product->getAttribute());
-        $stmt->bind_param(":attribute_value", $product->getAttributeValue());
-        $stmt->bind_param(":product_type", $product->getProductType());
-        $stmt->bind_param(":price", $product->getPrice());
+        $stmt->bind_param("sssssd", $sku, $name, $attribute, $attribute_value, $product_type, $price);
+        $sku = $product->getSku();
+        $name= $product->getName();
+        $attribute = $product->getAttribute();
+        $attribute_value = $product->getAttributeValue();
+        $product_type = $product->getProductType();
+        $price = $product->getPrice();
+        
         if ($stmt->execute()) {
             $response = ["status" => 1, "message" => "Record created successfully"];
         } else {
@@ -53,9 +55,10 @@ class DbManager extends DbConnect
         $product_values = json_decode(file_get_contents("php://input"));
         $class_name = strtolower($product_values->product_type);
         $product = new $class_name($product_values->sku, $product_values->name, $product_values->price, $product_values->attribute_value, $product_values->product_type);
-        $sql = "DELETE FROM products WHERE sku=:sku";
+        $sql = "DELETE FROM products WHERE sku=?";
         $stmt = $this->connect()->prepare($sql);
-        $stmt->bind_param(":sku", $product->getSku());
+        $stmt->bind_param("s", $sku);
+        $sku = $product->getSku();
         if ($stmt->execute()) {
             $response = ["status" => 1, "message" => "Record deleted successfully"];
         } else {

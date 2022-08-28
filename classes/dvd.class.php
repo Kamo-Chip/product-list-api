@@ -2,6 +2,9 @@
 /**
  * Instantiates DVD object
  */
+
+include "product.class.php";
+
 class DVD extends Product
 {
     public function __construct($sku, $name, $price, $attribute_value, $product_type)

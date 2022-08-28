@@ -57,11 +57,11 @@ class DbManager
         VALUES (:sku, :name, :attribute, :attribute_value, :product_type, :price)";
         $stmt = $this->connect()->prepare($sql);
         $stmt->bindParam(":sku", $product->getSku());
-        $stmt->bindParam(":sku", $product->getName());
-        $stmt->bindParam(":sku", $product->getAttribute());
-        $stmt->bindParam(":sku", $product->getAttributeValue());
-        $stmt->bindParam(":sku", $product->getProductType());
-        $stmt->bindParam(":sku", $product->getPrice());
+        $stmt->bindParam(":name", $product->getName());
+        $stmt->bindParam(":attribute", $product->getAttribute());
+        $stmt->bindParam(":attribute_value", $product->getAttributeValue());
+        $stmt->bindParam(":product_type", $product->getProductType());
+        $stmt->bindParam(":price", $product->getPrice());
 
         if ($stmt->execute()) {
             $response = ["status" => 1, "message" => "Record created successfully"];

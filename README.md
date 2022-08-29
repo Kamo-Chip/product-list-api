@@ -1,2 +1,4 @@
-# API for product list app
-## Built with PHP
+## Scandiweb Junior Developer Task (BackEnd)
+## Product list api built with:
+    - PHP
+    - MySQL

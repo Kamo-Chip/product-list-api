@@ -1,6 +1,7 @@
 <?php
 /**
  * Class containing product logic
+ * It is extended by sub classes
  */
 abstract class Product
 {

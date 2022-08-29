@@ -1,7 +1,4 @@
 <?php
-/**
- * Instantiates DVD object
- */
 
 include "product.class.php";
 

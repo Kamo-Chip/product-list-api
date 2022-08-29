@@ -1,7 +1,5 @@
 <?php
-/**
- * Instantiates Book object
- */
+
 include "product.class.php";
 
 class Book extends Product

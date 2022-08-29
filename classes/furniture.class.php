@@ -1,7 +1,4 @@
 <?php
-/**
- * Instantiates Furniture object
- */
 
 include "product.class.php";
 

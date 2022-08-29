@@ -7,10 +7,6 @@ include "includes/autoloader.inc.php";
 
 class DbManager
 {
-    /**
-     * Fetches all the products in database
-     */
-
     private $url;
     private $server;
     private $username;
@@ -37,6 +33,9 @@ class DbManager
         }
     }
 
+    /**
+     * Fetches all the products from database
+     */
     public function getProducts()
     {
         $sql = "SELECT * FROM products";
